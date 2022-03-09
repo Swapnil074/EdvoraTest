@@ -1,16 +1,14 @@
 import React from "react";
-import {
-  Tab,
-  Tabs,
-  TabList,
-  TabPanels,
-  TabPanel,
-  Center,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
 import RideDetail from "./RideDetail";
 
 export default function Rides({ rides }) {
+  function handleList() {
+    return <RideDetail rides={rides} />;
+  }
+
+  function handleDistance() {}
+
   return (
     <Tabs variant="unstyled" size="lg">
       <TabList color="gray">
@@ -44,15 +42,9 @@ export default function Rides({ rides }) {
       </TabList>
 
       <TabPanels color="white">
-        <TabPanel>
-          <RideDetail rides={rides} />
-        </TabPanel>
-        <TabPanel>
-          <RideDetail rides={rides} />
-        </TabPanel>
-        <TabPanel>
-          <RideDetail rides={rides} />
-        </TabPanel>
+        <TabPanel>{handleList()}</TabPanel>
+        <TabPanel>{handleList()}</TabPanel>
+        <TabPanel>{handleList()}</TabPanel>
       </TabPanels>
     </Tabs>
   );

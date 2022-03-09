@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
-export default function Header({ user }) {
+export default function Header({ user, rides }) {
   return (
     <>
       <Flex

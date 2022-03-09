@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Flex,
-  Avatar,
-  Text,
-  Box,
-  VStack,
-  Image,
-  Badge,
-} from "@chakra-ui/react";
+import { Text, Box, VStack, Image, Badge } from "@chakra-ui/react";
 
 export default function RideDetail({ rides }) {
-  console.log(rides);
   return (
     <VStack spacing={4} align="stretch">
       {rides.map((ride) => (
