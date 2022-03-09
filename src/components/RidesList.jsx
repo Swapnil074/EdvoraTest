@@ -5,7 +5,6 @@ import {
   TabList,
   TabPanels,
   TabPanel,
-  Avatar,
   Text,
   Box,
   Menu,
