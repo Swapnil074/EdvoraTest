@@ -3,7 +3,6 @@ import { Text, Box, VStack, Image, Badge } from "@chakra-ui/react";
 import moment from "moment";
 
 export default function RideDetail({ rides, count }) {
-  console.log(count);
   if (count === 0) return <Box>No rides found</Box>;
   return (
     <VStack spacing={4} align="stretch">

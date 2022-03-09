@@ -18,6 +18,7 @@ export default function App() {
     }
     fetchData();
   }, []);
+
   return (
     <div style={{ backgroundColor: "#101010" }}>
       <Header user={user} />

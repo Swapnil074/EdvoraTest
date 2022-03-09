@@ -12,7 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
-export default function Header({ user, rides }) {
+export default function Header({
+  user,
+  states,
+  cities,
+  setFilterState,
+  setFilterCity,
+}) {
   return (
     <>
       <Flex
@@ -36,7 +42,7 @@ export default function Header({ user, rides }) {
           <Avatar name={user.name} src={user.url} iconLabel={user.name} />
         </Box>
       </Flex>
-      <Box position="absolute" right="20">
+      {/* <Box position="absolute" right="20">
         <Menu>
           <MenuButton>
             <Box display="flex" alignItems="center" letterSpacing="wide">
@@ -46,27 +52,33 @@ export default function Header({ user, rides }) {
               </Text>
             </Box>
           </MenuButton>
-          <MenuList bg="#101010">
-            <MenuItem colorScheme="blackAlpha">
+          <MenuList>
+            <MenuItem>
               <Select
                 placeholder="State"
                 variant="flushed"
-                colorScheme="blackAlpha"
-                color="white"
-              ></Select>
+                // onSelect={(value) => setFilterState(value)}
+              >
+                {states.map((state) => (
+                  <option val={state}>{state}</option>
+                ))}
+              </Select>
             </MenuItem>
 
             <MenuItem>
               <Select
                 placeholder="City"
                 variant="flushed"
-                colorScheme="blackAlpha"
-                color="white"
-              ></Select>
+                // onSelect={(value) => setFilterCity(value)}
+              >
+                {cities.map((city) => (
+                  <option val={city}>{city}</option>
+                ))}
+              </Select>
             </MenuItem>
           </MenuList>
         </Menu>
-      </Box>
+      </Box> */}
     </>
   );
 }
