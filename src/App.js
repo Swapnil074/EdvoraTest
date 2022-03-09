@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getRidesData, getUserData } from "./api";
 import Header from "./components/Header";
-import Rides from "./components/Rides";
+import Rides from "./components/RidesList";
 
 export default function App() {
   const [rides, setRides] = useState([]);

@@ -1,12 +1,33 @@
 import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
-import RideDetail from "./RideDetail";
+import RideDetail from "./NearestRides";
+import UpcomingRides from "./UpcomingRides";
+import PastRides from "./PastRides";
+
+import moment from "moment";
 
 export default function Rides({ rides, user }) {
-  const [rideList, setRideList] = useState({ rides });
+  var upcomingCount = 0,
+    pastCount = 0;
+  // const [pastCount, setPastCount] = useState(0);
+
+  function handleUpcomingCount() {
+    const filtered = rides.filter((ride) => new Date(ride.date) > new Date());
+    console.log(filtered);
+    upcomingCount = filtered.length;
+  }
+
+  function handlePastCount() {
+    const filtered = rides.filter((ride) => new Date(ride.date) < new Date());
+    console.log(filtered);
+    pastCount = filtered.length;
+  }
 
   function handleList() {
     return <RideDetail rides={rides} />;
+  }
+  function handleUpcoming() {
+    return <UpcomingRides rides={rides} count={upcomingCount} />;
   }
 
   function SortDis(data) {
@@ -38,19 +59,13 @@ export default function Rides({ rides, user }) {
     console.log(rides);
   }
 
-  function SortUpcoming(data) {
-    {
-      data.sort(function (a, b) {
-        if (a.distance < b.distance) {
-          return -1;
-        }
-        if (a.distance > b.distance) {
-          return 1;
-        }
-        return 0;
-      });
-    }
+  function handlePast() {
+    return <PastRides rides={rides} count={pastCount} />;
   }
+  handleDistance();
+  handlePastCount();
+  handleUpcomingCount();
+
   return (
     <Tabs variant="unstyled" size="lg">
       <TabList color="gray">
@@ -61,7 +76,7 @@ export default function Rides({ rides, user }) {
             borderBottomColor: "white",
           }}
         >
-          Nearest rides
+          Nearest rides ({rides.length})
         </Tab>
         <Tab
           _selected={{
@@ -70,7 +85,7 @@ export default function Rides({ rides, user }) {
             borderBottomColor: "white",
           }}
         >
-          Upcoming rides
+          Upcoming rides ({upcomingCount})
         </Tab>
         <Tab
           _selected={{
@@ -79,17 +94,14 @@ export default function Rides({ rides, user }) {
             borderBottomColor: "white",
           }}
         >
-          Past rides
+          Past rides ({pastCount})
         </Tab>
       </TabList>
 
       <TabPanels color="white">
-        <TabPanel>
-          {handleDistance()}
-          {handleList()}
-        </TabPanel>
         <TabPanel>{handleList()}</TabPanel>
-        <TabPanel>{handleList()}</TabPanel>
+        <TabPanel>{handleUpcoming()}</TabPanel>
+        <TabPanel>{handlePast()}</TabPanel>
       </TabPanels>
     </Tabs>
   );

@@ -3,8 +3,6 @@ import { Text, Box, VStack, Image, Badge } from "@chakra-ui/react";
 import moment from "moment";
 
 export default function RideDetail({ rides }) {
-  console.log(rides);
-
   return (
     <VStack spacing={4} align="stretch">
       {rides.map((ride) => (
