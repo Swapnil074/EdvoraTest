@@ -1,8 +1,10 @@
 import React from "react";
 import { Text, Box, VStack, Image, Badge } from "@chakra-ui/react";
+import moment from "moment";
 
 export default function RideDetail({ rides }) {
   console.log(rides);
+
   return (
     <VStack spacing={4} align="stretch">
       {rides.map((ride) => (
@@ -47,7 +49,9 @@ export default function RideDetail({ rides }) {
               <Text color="gray" mr={2}>
                 Date:{" "}
               </Text>
-              <Text color="white">{ride.date}</Text>
+              <Text color="white">
+                {moment(ride.date).format("Do MMMM YYYY hh:mm:ss")}
+              </Text>
             </Box>
             <Box display="flex">
               <Text color="gray" mr={2}>
