@@ -2,6 +2,7 @@ import React from "react";
 import { Text, Box, VStack, Image, Badge } from "@chakra-ui/react";
 
 export default function RideDetail({ rides }) {
+  console.log(rides);
   return (
     <VStack spacing={4} align="stretch">
       {rides.map((ride) => (
@@ -52,7 +53,7 @@ export default function RideDetail({ rides }) {
               <Text color="gray" mr={2}>
                 Distance:{" "}
               </Text>
-              <Text color="white">0</Text>
+              <Text color="white">{ride.distance}</Text>
             </Box>
           </Box>
           <Box
