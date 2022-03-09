@@ -1,52 +1,59 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanels, TabPanel, Box } from "@chakra-ui/react";
+import {
+  Tab,
+  Tabs,
+  TabList,
+  TabPanels,
+  TabPanel,
+  Center,
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import RideDetail from "./RideDetail";
 
-export default function Rides() {
+export default function Rides({ rides }) {
   return (
-    <Box pl={5} justify="space-between">
-      <Tabs variant="unstyled" size="lg">
-        <TabList color="gray">
-          <Tab
-            _selected={{
-              color: "white",
-              borderBottom: "2px solid",
-              borderBottomColor: "white",
-            }}
-          >
-            Nearest rides
-          </Tab>
-          <Tab
-            _selected={{
-              color: "white",
-              borderBottom: "2px solid",
-              borderBottomColor: "white",
-            }}
-          >
-            Upcoming rides
-          </Tab>
-          <Tab
-            _selected={{
-              color: "white",
-              borderBottom: "2px solid",
-              borderBottomColor: "white",
-            }}
-          >
-            Past rides
-          </Tab>
-        </TabList>
+    <Tabs variant="unstyled" size="lg">
+      <TabList color="gray">
+        <Tab
+          _selected={{
+            color: "white",
+            borderBottom: "2px solid",
+            borderBottomColor: "white",
+          }}
+        >
+          Nearest rides
+        </Tab>
+        <Tab
+          _selected={{
+            color: "white",
+            borderBottom: "2px solid",
+            borderBottomColor: "white",
+          }}
+        >
+          Upcoming rides
+        </Tab>
+        <Tab
+          _selected={{
+            color: "white",
+            borderBottom: "2px solid",
+            borderBottomColor: "white",
+          }}
+        >
+          Past rides
+        </Tab>
+      </TabList>
 
-        <TabPanels color="white">
-          <TabPanel>
-            <p>one!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>two!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>three!</p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </Box>
+      <TabPanels color="white">
+        <TabPanel>
+          <RideDetail rides={rides} />
+        </TabPanel>
+        <TabPanel>
+          <RideDetail rides={rides} />
+        </TabPanel>
+        <TabPanel>
+          <RideDetail rides={rides} />
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   );
 }

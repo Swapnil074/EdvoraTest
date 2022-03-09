@@ -21,7 +21,7 @@ export default function App() {
   return (
     <div style={{ backgroundColor: "#101010" }}>
       <Header user={user} />
-      <Rides />
+      <Rides rides={rides} />
     </div>
   );
 }
